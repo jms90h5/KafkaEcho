@@ -6,6 +6,5 @@ spec:
   bundle:
     name: application.KafkaEcho.sab
     url:  https://github.com/jms90h5/KafkaEcho/releases/download/v0.1.0/apps.custommetrics.CustomMetrics.sab
-
   fusion:
     manual: 3
