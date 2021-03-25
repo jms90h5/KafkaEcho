@@ -1,0 +1,3 @@
+	@$(CXX_LN) $(SPL_CXXFLAGS) -o bin/KafkaConsumer_1.so -fPIC -shared $(SOKafkaConsumer_1) -lstreams-stdtk-javaop -L /opt/ibm/InfoSphere_Streams/4.3.1.1/java/jre/lib/amd64/j9vm -Wl,-rpath -Wl,/opt/ibm/InfoSphere_Streams/4.3.1.1/java/jre/lib/amd64/j9vm -lpthread -ldl -lstreams-stdtk-runtime $(SPL_LDFLAGS)\
+	    build/operator/KafkaConsumer_1.o \
+	    build/type/BeJwrMSo2zk6tLDbPTS0uTkxPBQAysQYl.o 

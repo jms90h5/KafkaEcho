@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<applicationSet xmlns="http://www.ibm.com/xmlns/prod/streams/application/v4200" name="application::KafkaEcho.appset" xmlns:tt="http://www.ibm.com/xmlns/prod/streams/spl/tupleType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <description>application::KafkaEcho application set</description>
+
+  <splApplication adlPath="BuildConfig/application.KafkaEcho.adl" applicationDirectory="toolkits/KafkaEcho" applicationScope="Default" avoidRuntimeYield="auto" buildId="" bundle="./application.KafkaEcho.sab" checkpointDirectory="/home/streamsadmin/workspace/KafkaEcho/data/ckpt" dataDirectory="/home/streamsadmin/workspace/KafkaEcho/data" name="application::KafkaEcho" outputDirectory="BuildConfig" productVersion="4.3.1.1" standaloneApplicationDirectory="toolkits/KafkaEcho" version="1.0.0">
+    <libraries/>
+    <hostpools>
+      <hostpool index="0" membershipMode="shared" name="$default"/>
+    </hostpools>
+    <tupleTypes>
+      <tupleType index="0">
+        <attribute name="key" type="rstring"/>
+        <attribute name="message" type="rstring"/>
+        <tuple>
+          <tt:attr name="key" type="rstring"/>
+          <tt:attr name="message" type="rstring"/>
+        </tuple>
+      </tupleType>
+    </tupleTypes>
+    <primitiveOperDefinitions>
+      <primitiveOperDefinition index="0" kind="com.ibm.streamsx.kafka::KafkaConsumer" runtimeType="SPL_Java" toolkitIndex="2">
+        <customMetricIndicies>
+          <customMetricIndex>0</customMetricIndex>
+          <customMetricIndex>1</customMetricIndex>
+          <customMetricIndex>2</customMetricIndex>
+          <customMetricIndex>3</customMetricIndex>
+          <customMetricIndex>4</customMetricIndex>
+          <customMetricIndex>5</customMetricIndex>
+          <customMetricIndex>6</customMetricIndex>
+        </customMetricIndicies>
+      </primitiveOperDefinition>
+      <primitiveOperDefinition index="1" kind="spl.utility::Custom" runtimeType="SPL_CPlusPlus" toolkitIndex="1"/>
+      <primitiveOperDefinition index="2" kind="com.ibm.streamsx.kafka::KafkaProducer" runtimeType="SPL_Java" toolkitIndex="2"/>
+    </primitiveOperDefinitions>
+    <composites>
+      <sourceUris>
+        <uri index="0" path="file:///home/streamsadmin/workspace/KafkaEcho/application/KafkaEcho.spl"/>
+      </sourceUris>
+      <compositeOperDefinitions>
+        <compositeOperDefinition endLine="40" index="0" kind="application::KafkaEcho" numberOfInputPorts="0" numberOfOutputPorts="0" sourceIndex="0" startLine="11" toolkitIndex="0">
+          <description>application::KafkaEcho Composite</description>
+        </compositeOperDefinition>
+      </compositeOperDefinitions>
+      <compositeOperInstances>
+        <compositeOperInstance definitionIndex="0" endLine="40" index="3" name="application::KafkaEcho" sourceIndex="0" startLine="11">
+          <primitiveOperInstance definitionIndex="0" endLine="21" index="0" name="KafkaConsumer_1" optimized="true" relocatable="true" restartable="true" singleThreadedOnOutputs="false" sourceIndex="0" startLine="16">
+            <outputPorts>
+              <port encoding="LE" index="0" isMutable="true" name="KafkaConsumer_1_out0" streamName="KafkaConsumer_1_out0" transport="TCP" tupleTypeIndex="0" viewable="true">
+                <connections>
+                  <connection operIndex="1" operName="Custom_2" portIndex="0" portKind="input"/>
+                  <connection operIndex="2" operName="KafkaProducer_3" portIndex="0" portKind="input"/>
+                </connections>
+              </port>
+            </outputPorts>
+            <envVars/>
+            <resources>
+              <poolLocation poolIndex="0"/>
+            </resources>
+            <runtimeConstants>
+              <runtimeConstant name="lit$0" value="&quot;input&quot;"/>
+              <runtimeConstant name="lit$1" value="&quot;etc/consumer.properties&quot;"/>
+            </runtimeConstants>
+            <sharedObject class="KafkaConsumer_1">
+              <wrapper>none</wrapper>
+              <uri>bin/KafkaConsumer_1.so</uri>
+            </sharedObject>
+            <jvmArguments/>
+            <tracing level="error"/>
+          </primitiveOperInstance>
+          <primitiveOperInstance definitionIndex="1" endLine="30" index="1" name="Custom_2" optimized="true" relocatable="true" restartable="true" singleThreadedOnOutputs="true" sourceIndex="0" startLine="23">
+            <splAnnotation internal="true" tag="logicClause">
+              <value key="hasState" type="boolean">false</value>
+              <value key="hasOnProcess" type="boolean">false</value>
+              <value key="hasOnTuple" type="boolean">true</value>
+              <value key="hasOnPunct" type="boolean">false</value>
+            </splAnnotation>
+            <inputPorts>
+              <port encoding="LE" index="0" isControl="true" isMutable="false" name="KafkaConsumer_1_out0" transport="TCP" tupleTypeIndex="0">
+                <connections>
+                  <connection operIndex="0" operName="KafkaConsumer_1" portIndex="0" portKind="output"/>
+                </connections>
+              </port>
+            </inputPorts>
+            <envVars/>
+            <resources>
+              <poolLocation poolIndex="0"/>
+            </resources>
+            <runtimeConstants/>
+            <sharedObject class="Custom_2">
+              <wrapper>none</wrapper>
+              <uri>bin/Custom_2.so</uri>
+            </sharedObject>
+            <tracing level="error"/>
+          </primitiveOperInstance>
+          <primitiveOperInstance definitionIndex="2" endLine="37" index="2" name="KafkaProducer_3" optimized="true" relocatable="true" restartable="true" singleThreadedOnOutputs="false" sourceIndex="0" startLine="32">
+            <inputPorts>
+              <port encoding="LE" index="0" isMutable="false" name="KafkaConsumer_1_out0" transport="TCP" tupleTypeIndex="0">
+                <connections>
+                  <connection operIndex="0" operName="KafkaConsumer_1" portIndex="0" portKind="output"/>
+                </connections>
+              </port>
+            </inputPorts>
+            <envVars/>
+            <resources>
+              <poolLocation poolIndex="0"/>
+            </resources>
+            <runtimeConstants>
+              <runtimeConstant name="lit$0" value="&quot;output&quot;"/>
+              <runtimeConstant name="lit$1" value="&quot;etc/producer.properties&quot;"/>
+            </runtimeConstants>
+            <sharedObject class="KafkaProducer_3">
+              <wrapper>none</wrapper>
+              <uri>bin/KafkaProducer_3.so</uri>
+            </sharedObject>
+            <jvmArguments/>
+            <tracing level="error"/>
+          </primitiveOperInstance>
+        </compositeOperInstance>
+      </compositeOperInstances>
+    </composites>
+    <toolkits>
+      <toolkit index="0" name="KafkaEcho" uri="file:///home/streamsadmin/workspace/KafkaEcho" version="1.0.0"/>
+      <toolkit index="1" name="spl" uri="file:///opt/ibm/InfoSphere_Streams/4.3.1.1/toolkits/spl" version="1.4.0"/>
+      <toolkit index="2" name="com.ibm.streamsx.kafka" uri="file:///opt/ibm/InfoSphere_Streams/4.3.1.1/toolkits/com.ibm.streamsx.kafka" version="1.9.4"/>
+    </toolkits>
+    <customMetrics>
+      <customMetric index="0" kind="Gauge" name="isGroupManagementActive">
+        <description>Shows the Kafka group management state of the operator. When the metric shows 1, group management is active. When the metric is 0, group management is not in place.</description>
+      </customMetric>
+      <customMetric index="1" kind="Gauge" name="nAssignedPartitions">
+        <description>Number of topic partitions assigned to the consumer.</description>
+      </customMetric>
+      <customMetric index="2" kind="Gauge" name="nConsumedTopics">
+        <description>Number of topics consumed by this consumer. This is the number of topics of the assigned partitions. Note, that a consumer can subscribe to topics, or to a pattern matching numerous topics, but cannot have assigned partitions of the subscribed topics. This metric value is never higher than metric **nAssignedPartitions**.</description>
+      </customMetric>
+      <customMetric index="3" kind="Counter" name="nLowMemoryPause">
+        <description>Number times message fetching was paused due to low memory.</description>
+      </customMetric>
+      <customMetric index="4" kind="Counter" name="nDroppedMalformedMessages">
+        <description>Number of dropped malformed messages</description>
+      </customMetric>
+      <customMetric index="5" kind="Gauge" name="nPendingMessages">
+        <description>Number of pending messages to be submitted as tuples.</description>
+      </customMetric>
+      <customMetric index="6" kind="Counter" name="nQueueFullPause">
+        <description>Number times message fetching was paused due to full queue.</description>
+      </customMetric>
+    </customMetrics>
+  </splApplication>
+
+</applicationSet>

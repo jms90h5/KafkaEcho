@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<operatorInstanceModel xmlns="http://www.ibm.com/xmlns/prod/streams/spl/operator/instance" xmlns:an="http://www.ibm.com/xmlns/prod/streams/spl/annotation" xmlns:tt="http://www.ibm.com/xmlns/prod/streams/spl/tupleType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <context>
+    <kind>com.ibm.streamsx.kafka::KafkaConsumer</kind>
+    <class>KafkaConsumer_1</class>
+    <operatorModelDirectory>/opt/ibm/InfoSphere_Streams/4.3.1.1/toolkits/spl/spl/utility/JavaOp</operatorModelDirectory>
+    <applicationDirectory>/home/streamsadmin/workspace/KafkaEcho</applicationDirectory>
+    <dataDirectory>/home/streamsadmin/workspace/KafkaEcho/data</dataDirectory>
+    <outputDirectory>/home/streamsadmin/workspace/KafkaEcho/output/application.KafkaEcho/BuildConfig</outputDirectory>
+    <toolkits>
+      <toolkit isCurrentToolkit="false">
+        <name>KafkaEcho</name>
+        <rootDirectory>/home/streamsadmin/workspace/KafkaEcho</rootDirectory>
+        <index>0</index>
+      </toolkit>
+      <toolkit isCurrentToolkit="false">
+        <name>spl</name>
+        <rootDirectory>/opt/ibm/InfoSphere_Streams/4.3.1.1/toolkits/spl</rootDirectory>
+        <index>1</index>
+      </toolkit>
+      <toolkit isCurrentToolkit="true">
+        <name>com.ibm.streamsx.kafka</name>
+        <rootDirectory>/opt/ibm/InfoSphere_Streams/4.3.1.1/toolkits/com.ibm.streamsx.kafka</rootDirectory>
+        <index>2</index>
+      </toolkit>
+    </toolkits>
+    <optimized>true</optimized>
+    <verbose>false</verbose>
+    <networkByteOrdering>false</networkByteOrdering>
+    <codeBeautification>false</codeBeautification>
+    <includes>
+      <include>"../type/BeJwrMSo2zk6tLDbPTS0uTkxPBQAysQYl.h"</include>
+    </includes>
+    <stateVariables/>
+    <runtimeConstants/>
+    <sourceLocation>
+      <file>application/KafkaEcho.spl</file>
+      <line>16</line>
+      <column>3</column>
+    </sourceLocation>
+    <productVersion>4.3.1.1</productVersion>
+    <types>
+      <type index="0" type="rstring"/>
+    </types>
+    <javaOperatorModelDirectory>/opt/ibm/InfoSphere_Streams/4.3.1.1/toolkits/com.ibm.streamsx.kafka/com.ibm.streamsx.kafka/KafkaConsumer</javaOperatorModelDirectory>
+    <checkpointKind>none</checkpointKind>
+  </context>
+
+  <parameters>
+    <parameter>
+      <name>className</name>
+      <values>
+        <value>
+          <cppType>SPL::rstring</cppType>
+          <splType>rstring</splType>
+          <hasRuntimeConstant>false</hasRuntimeConstant>
+          <cppExpression>SPL::rstring("com.ibm.streamsx.kafka.operators.KafkaConsumerOperator")</cppExpression>
+          <splExpression>"com.ibm.streamsx.kafka.operators.KafkaConsumerOperator"</splExpression>
+          <hasFunctions>false</hasFunctions>
+          <hasSideEffects>false</hasSideEffects>
+          <readsState>false</readsState>
+          <hasStreamAttributes>false</hasStreamAttributes>
+          <parameterExpressionMode>AttributeFree</parameterExpressionMode>
+          <sourceLocation>
+            <file>&lt;invalid&gt;</file>
+            <line>-1</line>
+            <column>0</column>
+          </sourceLocation>
+        </value>
+      </values>
+      <sourceLocation>
+        <file>&lt;invalid&gt;</file>
+        <line>-1</line>
+        <column>0</column>
+      </sourceLocation>
+    </parameter>
+    <parameter>
+      <name>classLibrary</name>
+      <values>
+        <value>
+          <cppType>SPL::rstring</cppType>
+          <splType>rstring</splType>
+          <hasRuntimeConstant>false</hasRuntimeConstant>
+          <cppExpression>(SPL::Functions::Utility::getToolkitDirectory(SPL::rstring("com.ibm.streamsx.kafka")) + SPL::rstring("/impl/java/bin"))</cppExpression>
+          <splExpression>getToolkitDirectory("com.ibm.streamsx.kafka") + "/impl/java/bin"</splExpression>
+          <hasFunctions>true</hasFunctions>
+          <hasSideEffects>false</hasSideEffects>
+          <readsState>false</readsState>
+          <hasStreamAttributes>false</hasStreamAttributes>
+          <parameterExpressionMode>AttributeFree</parameterExpressionMode>
+          <sourceLocation>
+            <file>&lt;invalid&gt;</file>
+            <line>-1</line>
+            <column>0</column>
+          </sourceLocation>
+          <expressionTree>
+            <binary op="+" type="0">
+              <lhs>
+                <call fcn="getToolkitDirectory" type="0">
+                  <args count="1">
+                    <arg type="0">
+                      <literal type="0">"com.ibm.streamsx.kafka"</literal>
+                    </arg>
+                  </args>
+                </call>
+              </lhs>
+              <rhs>
+                <literal type="0">"/impl/java/bin"</literal>
+              </rhs>
+            </binary>
+          </expressionTree>
+        </value>
+        <value>
+          <cppType>SPL::rstring</cppType>
+          <splType>rstring</splType>
+          <hasRuntimeConstant>false</hasRuntimeConstant>
+          <cppExpression>(SPL::Functions::Utility::getToolkitDirectory(SPL::rstring("com.ibm.streamsx.kafka")) + SPL::rstring("/opt/downloaded/*"))</cppExpression>
+          <splExpression>getToolkitDirectory("com.ibm.streamsx.kafka") + "/opt/downloaded/*"</splExpression>
+          <hasFunctions>true</hasFunctions>
+          <hasSideEffects>false</hasSideEffects>
+          <readsState>false</readsState>
+          <hasStreamAttributes>false</hasStreamAttributes>
+          <parameterExpressionMode>AttributeFree</parameterExpressionMode>
+          <sourceLocation>
+            <file>&lt;invalid&gt;</file>
+            <line>-1</line>
+            <column>0</column>
+          </sourceLocation>
+          <expressionTree>
+            <binary op="+" type="0">
+              <lhs>
+                <call fcn="getToolkitDirectory" type="0">
+                  <args count="1">
+                    <arg type="0">
+                      <literal type="0">"com.ibm.streamsx.kafka"</literal>
+                    </arg>
+                  </args>
+                </call>
+              </lhs>
+              <rhs>
+                <literal type="0">"/opt/downloaded/*"</literal>
+              </rhs>
+            </binary>
+          </expressionTree>
+        </value>
+        <value>
+          <cppType>SPL::rstring</cppType>
+          <splType>rstring</splType>
+          <hasRuntimeConstant>false</hasRuntimeConstant>
+          <cppExpression>(SPL::Functions::Utility::getToolkitDirectory(SPL::rstring("com.ibm.streamsx.kafka")) + SPL::rstring("/impl/lib/*"))</cppExpression>
+          <splExpression>getToolkitDirectory("com.ibm.streamsx.kafka") + "/impl/lib/*"</splExpression>
+          <hasFunctions>true</hasFunctions>
+          <hasSideEffects>false</hasSideEffects>
+          <readsState>false</readsState>
+          <hasStreamAttributes>false</hasStreamAttributes>
+          <parameterExpressionMode>AttributeFree</parameterExpressionMode>
+          <sourceLocation>
+            <file>&lt;invalid&gt;</file>
+            <line>-1</line>
+            <column>0</column>
+          </sourceLocation>
+          <expressionTree>
+            <binary op="+" type="0">
+              <lhs>
+                <call fcn="getToolkitDirectory" type="0">
+                  <args count="1">
+                    <arg type="0">
+                      <literal type="0">"com.ibm.streamsx.kafka"</literal>
+                    </arg>
+                  </args>
+                </call>
+              </lhs>
+              <rhs>
+                <literal type="0">"/impl/lib/*"</literal>
+              </rhs>
+            </binary>
+          </expressionTree>
+        </value>
+      </values>
+      <sourceLocation>
+        <file>&lt;invalid&gt;</file>
+        <line>-1</line>
+        <column>0</column>
+      </sourceLocation>
+    </parameter>
+    <parameter>
+      <name>topic</name>
+      <values>
+        <value>
+          <cppType>SPL::rstring</cppType>
+          <splType>rstring</splType>
+          <hasRuntimeConstant>false</hasRuntimeConstant>
+          <cppExpression>SPL::rstring("input")</cppExpression>
+          <splExpression>"input"</splExpression>
+          <hasFunctions>false</hasFunctions>
+          <hasSideEffects>false</hasSideEffects>
+          <readsState>false</readsState>
+          <hasStreamAttributes>false</hasStreamAttributes>
+          <parameterExpressionMode>AttributeFree</parameterExpressionMode>
+          <sourceLocation>
+            <file>application/KafkaEcho.spl</file>
+            <line>19</line>
+            <column>13</column>
+          </sourceLocation>
+          <expressionTree>
+            <literal type="0">"input"</literal>
+          </expressionTree>
+        </value>
+      </values>
+      <sourceLocation>
+        <file>application/KafkaEcho.spl</file>
+        <line>19</line>
+        <column>5</column>
+      </sourceLocation>
+    </parameter>
+    <parameter>
+      <name>propertiesFile</name>
+      <values>
+        <value>
+          <cppType>SPL::rstring</cppType>
+          <splType>rstring</splType>
+          <hasRuntimeConstant>false</hasRuntimeConstant>
+          <cppExpression>SPL::rstring("etc/consumer.properties")</cppExpression>
+          <splExpression>"etc/consumer.properties"</splExpression>
+          <hasFunctions>false</hasFunctions>
+          <hasSideEffects>false</hasSideEffects>
+          <readsState>false</readsState>
+          <hasStreamAttributes>false</hasStreamAttributes>
+          <parameterExpressionMode>AttributeFree</parameterExpressionMode>
+          <sourceLocation>
+            <file>application/KafkaEcho.spl</file>
+            <line>20</line>
+            <column>22</column>
+          </sourceLocation>
+          <expressionTree>
+            <literal type="0">"etc/consumer.properties"</literal>
+          </expressionTree>
+        </value>
+      </values>
+      <sourceLocation>
+        <file>application/KafkaEcho.spl</file>
+        <line>20</line>
+        <column>5</column>
+      </sourceLocation>
+    </parameter>
+  </parameters>
+
+  <inputPorts/>
+
+  <outputPorts>
+    <outputPort>
+      <index>0</index>
+      <tupleCppName>oport$0</tupleCppName>
+      <tupleCppType>SPL::BeJwrMSo2zk6tLDbPTS0uTkxPBQAysQYl</tupleCppType>
+      <tupleSPLType>tuple&lt;rstring key,rstring message&gt;</tupleSPLType>
+      <facade>false</facade>
+      <mutationAllowed>true</mutationAllowed>
+      <sourceLocation>
+        <file>application/KafkaEcho.spl</file>
+        <line>16</line>
+        <column>4</column>
+      </sourceLocation>
+      <attributes>
+        <attribute>
+          <name>key</name>
+          <cppType>SPL::rstring</cppType>
+          <splType>rstring</splType>
+        </attribute>
+        <attribute>
+          <name>message</name>
+          <cppType>SPL::rstring</cppType>
+          <splType>rstring</splType>
+        </attribute>
+      </attributes>
+      <tuple>
+        <tt:attr name="key" type="rstring"/>
+        <tt:attr name="message" type="rstring"/>
+      </tuple>
+      <finalPunctuationPortScope/>
+      <exceptionPort>false</exceptionPort>
+    </outputPort>
+  </outputPorts>
+
+  <exceptionPorts/>
+
+</operatorInstanceModel>

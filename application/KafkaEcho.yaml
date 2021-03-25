@@ -1,0 +1,9 @@
+apiVersion: streams.ibm.com/v1
+kind: Job
+metadata:
+  name: KafkaEcho
+spec:
+  bundle:
+    name: application.KafkaEcho.sab
+  fusion:
+    manual: 3

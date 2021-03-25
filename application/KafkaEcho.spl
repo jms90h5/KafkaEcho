@@ -1,0 +1,41 @@
+namespace application;
+
+
+use com.ibm.streamsx.kafka::KafkaConsumer ;
+use com.ibm.streamsx.kafka::KafkaProducer ;
+
+/*
+ * This is a very basic sample demonstrating how to use the KafkaConsumer 
+ * and KafkaProducer operators.
+ */
+composite KafkaEcho
+{
+	type
+		Message = rstring key, rstring message;
+	graph
+		(stream<Message> KafkaConsumer_1_out0) as KafkaConsumer_1 = KafkaConsumer()
+		{
+			param
+				topic : "input" ;
+				propertiesFile : "etc/consumer.properties";
+		}
+
+		() as Custom_2 = Custom(KafkaConsumer_1_out0)
+		{
+			logic
+				onTuple KafkaConsumer_1_out0:
+				{
+					println(KafkaConsumer_1_out0);
+				}
+		}
+
+		() as KafkaProducer_3 = KafkaProducer(KafkaConsumer_1_out0)
+		{
+			param
+				topic : "output" ;
+				propertiesFile : "etc/producer.properties";
+		}
+
+
+}
+

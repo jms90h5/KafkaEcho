@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<toolkitModel xmlns="http://www.ibm.com/xmlns/prod/streams/spl/toolkit" productVersion="6.0.0.0" xmlns:common="http://www.ibm.com/xmlns/prod/streams/spl/common" xmlns:ti="http://www.ibm.com/xmlns/prod/streams/spl/toolkitInfo" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <toolkit name="KafkaEcho" requiredProductVersion="4.3.1.1" version="1.0.0">
+    <description/>
+    <uriTable>
+      <uri index="1" value="application/KafkaEcho.spl"/>
+    </uriTable>
+    <namespace name="application">
+      <compositeOp column="11" line="11" name="KafkaEcho" potentialMain="true" uriIndex="1">
+        <type column="3" line="14" name="Message" type="rstring key, rstring message" uriIndex="1"/>
+      </compositeOp>
+    </namespace>
+    <dependency>
+      <common:name>com.ibm.streamsx.kafka</common:name>
+      <common:version>1.9.4</common:version>
+    </dependency>
+    <sabFiles>
+      <ti:include path="toolkit.xml" root="toolkitDir"/>
+      <ti:include path="impl/java/lib/**" root="toolkitDir"/>
+      <ti:include path="impl/java/bin/**" root="toolkitDir"/>
+      <ti:include path="impl/bin/**" root="toolkitDir"/>
+      <ti:include path="impl/lib/**" root="toolkitDir"/>
+      <ti:include path="impl/nl/*.dat" root="toolkitDir"/>
+      <ti:include path="etc/**" root="toolkitDir"/>
+      <ti:include path="lib/**" root="toolkitDir"/>
+      <ti:include path="nl/**" root="toolkitDir"/>
+      <ti:include path="opt/**" root="toolkitDir"/>
+    </sabFiles>
+  </toolkit>
+</toolkitModel>
